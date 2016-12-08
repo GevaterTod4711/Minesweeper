@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-           test
-        <title></title>
-    </head>
-    <body>
-    </body>
-</html>
+<?php
+
+session_start();
+
+require 'lib/Template.class.php';
+
+$tpl = new Template();
+$tpl->assign('{$title}', 'Register');
+$tpl->display('templates/register.tpl.html');
+
+?>
