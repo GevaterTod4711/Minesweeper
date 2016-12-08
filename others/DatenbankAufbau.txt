@@ -1,0 +1,5 @@
+Datenbank Name:	minesweeper
+Table: 	user (id, name, email, pwd)
+	highscore (id, score)
+	achievements_all (id, name, description)
+	achievements_user(user_id, achievment_id)
