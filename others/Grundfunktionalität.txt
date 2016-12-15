@@ -1,11 +1,25 @@
 Grundfunktionalität
 
 Registrierung, Login, Logout
-Benutzer sollen in der Lage sein, sich mit einer Emailadresse, einem Nickname (Spitznamen) und einem Passwort zu registrieren. Daraufhin soll es möglich sein sich ein- und auszuloggen.
+Benutzer sollen in der Lage sein, sich mit einer Emailadresse, einem Nickname 
+(Spitznamen) und einem Passwort zu registrieren. Daraufhin soll es möglich 
+sein sich ein- und auszuloggen.
+
 Editierbares Profil
-Jeder Benutzer besitzt ein eigenes Profil über das andere Spieler seinen Punktestand sehen können. Zusätzlich hat jeder Spieler die Möglichkeit einen Text auf der Seite zu hinterlassen, in dem er sich selbst beschreibt. orientieren Sie sich an kommerziellen Plattformen (Steam, Battlenet ...)
+Jeder Benutzer besitzt ein eigenes Profil über das andere Spieler seinen 
+Punktestand sehen können. Zusätzlich hat jeder Spieler die Möglichkeit einen 
+Text auf der Seite zu hinterlassen, in dem er sich selbst beschreibt. 
+orientieren Sie sich an kommerziellen Plattformen (Steam, Battlenet ...)
+
 Bestenliste
-In der Bestenliste sollen alle Spieler geordnet nach Punktzahl aufgelistet sein. Da bei dem Spiel mit einem großen Spielerandrang gerechnet wird, soll die Liste mehrere Seiten haben. So zeigt die erste Seite z.B. nur die besten zehn Spieler an.
+In der Bestenliste sollen alle Spieler geordnet nach Punktzahl aufgelistet 
+sein. Da bei dem Spiel mit einem großen Spielerandrang gerechnet wird, soll 
+die Liste mehrere Seiten haben. So zeigt die erste Seite z.B. nur die besten 
+zehn Spieler an.
+
 Nachrichtensystem
-Um die Kommunikation unter den Spielern zu fördern, haben die Spieler die Möglichkeit sich untereinander Nachrichten zu senden. Diese sollen zuerst als ungelesen dargestellt werden und nachdem der Benutzer sich die Nachricht angesehen hat als gelesen markiert werden.
+Um die Kommunikation unter den Spielern zu fördern, haben die Spieler die 
+Möglichkeit sich untereinander Nachrichten zu senden. Diese sollen zuerst als 
+ungelesen dargestellt werden und nachdem der Benutzer sich die Nachricht 
+angesehen hat als gelesen markiert werden.
 
