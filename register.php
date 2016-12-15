@@ -1,20 +1,16 @@
 <?php
-<<<<<<< HEAD
-require 'lib/Database.class.php';
+
+require 'bootstrap.php';
+
 $name = filter_input(INPUT_POST,'user',FILTER_SANITIZE_SPECIAL_CHARS);
 $passwort = filter_input(INPUT_POST, 'pw', FILTER_UNSAFE_RAW);
 
 $hash = crypt($passwort);
 $dbh = Database::getInstance();
 $return = $dbh->registerUser($name,$hash);
-=======
 
-session_start();
+$template = $twig->load('register.tpl.html');
 
-require 'lib/Template.class.php';
-
-$tpl = new Template();
-$tpl->assign('{$title}', 'Register');
-$tpl->display('templates/register.tpl.html');
->>>>>>> 61c017caae61989692b84f739cac7d1e40e8239f
-?>
+echo $template->render(array(
+    'title' => 'Register',
+));

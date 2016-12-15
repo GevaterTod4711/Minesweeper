@@ -1,16 +1,12 @@
 <?php
 
-session_start();
+require 'bootstrap.php';
 
 if (isset($_SESSION['user'])) {
     header("Location: main.php");
 }
 
-require('lib/Database.class.php');
-require('lib/Template.class.php');
-
-$tpl = new Template();
-$tpl->assign('{$title}', 'Login');
+$template_data = array();
 
 if (!empty($_POST['name']) && !empty($_POST['password'])) {
 
@@ -21,20 +17,19 @@ if (!empty($_POST['name']) && !empty($_POST['password'])) {
     $hash = $db->getPasswordHash($user);
 
     if (password_verify($passwd, $hash)) {
-	$tpl->assign('{$result}', 'Login erfolgreich.');
+        $template_data['result'] = 'Login erfolgreich.';
 
-	$student = new Student($user);
-	$student->setNote($db->getNote($user));
+        $student = new Student($user);
+        $student->setNote($db->getNote($user));
 
-	$_SESSION['user'] = $student;
+        $_SESSION['user'] = $student;
 
-	header('Location: userdata.php');
+        header('Location: userdata.php');
     } else {
-	$tpl->assign('{$result}', 'Login fehlgeschlagen');
+        $template_data['result'] = 'Login fehlgeschlagen';
     }
 }
 
+$template = $twig->load('login.tpl.html');
 
-//execute at the end
-$tpl->display('templates/login.tpl.html');
-?>
+echo $template->render($template_data);
