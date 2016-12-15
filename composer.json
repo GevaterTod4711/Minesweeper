@@ -1,0 +1,15 @@
+{
+    "name": "Minesweeper",
+    "type": "project",
+    "description": "Minesweeper_Webanwendung",
+    "homepage": "https://github.com/GevaterTod4711/Minesweeper",
+    "keywords": ["game", "Minesweeper"],
+    "require": {
+        "php": "^5.4 || ^7.0"
+    },
+    "autoload": {
+        "classmap": [
+            "lib/"
+        ]
+    }
+}
