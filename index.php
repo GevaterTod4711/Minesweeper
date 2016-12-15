@@ -1,10 +1,18 @@
 <?php
 
-session_start();
-
 require 'vendor/autoload.php';
 
-$tpl = new Template();
-$tpl->assign('{$title}', 'Register');
+session_start();
 
-$tpl->display('templates/login.tpl.html');
+$loader = new Twig_Loader_Filesystem('templates');
+
+$twig = new Twig_Environment($loader, array(
+    'cache' => 'cache'.DIRECTORY_SEPARATOR.'twig',
+    'autoload' => true,
+));
+
+$template = $twig->load('login.tpl.html');
+
+echo $template->render(array(
+    'title' => 'Register',
+));

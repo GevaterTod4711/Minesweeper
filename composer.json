@@ -5,7 +5,8 @@
     "homepage": "https://github.com/GevaterTod4711/Minesweeper",
     "keywords": ["game", "Minesweeper"],
     "require": {
-        "php": "^5.4 || ^7.0"
+        "php": "^5.4 || ^7.0",
+        "twig/twig": "^1.29"
     },
     "autoload": {
         "classmap": [
