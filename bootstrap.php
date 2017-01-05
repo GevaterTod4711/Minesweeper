@@ -2,11 +2,15 @@
 
 require 'vendor/autoload.php';
 
+define('DS', DIRECTORY_SEPARATOR); // Shortcut
+define('PUBLICPATH', __DIR__.DS.'public'.DS);
+define('ROOTPATH', realpath(__DIR__).DS);
+
 session_start();
 
-$loader = new Twig_Loader_Filesystem('templates');
+$loader = new Twig_Loader_Filesystem(ROOTPATH.'templates'.DS);
 
 $twig = new Twig_Environment($loader, array(
-    'cache' => 'cache'.DIRECTORY_SEPARATOR.'twig',
+    'cache' => ROOTPATH.DS.'cache'.DS.'twig',
     'auto_reload' => true,
 ));
