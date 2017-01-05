@@ -12,5 +12,5 @@ $loader = new Twig_Loader_Filesystem(ROOTPATH.'templates'.DS);
 
 $twig = new Twig_Environment($loader, array(
     'cache' => ROOTPATH.DS.'cache'.DS.'twig',
-    'autoload' => true,
+    'auto_reload' => true,
 ));
