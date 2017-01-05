@@ -1,32 +1,6 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>{$title}</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{% extends 'layout.tpl.html' %}
 
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <!-- <script  type="text/javascript" src="scripts/todo.js" />  -->
-        <!-- Website CSS style -->
-        <link rel="stylesheet" type="text/css" href="assets/css/main.css">
-
-        <!-- Website Font style -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    </head>
-    <body>
+{% block body %}
         <div class="container">
             <div class="row main">
                 <div class="panel-heading">
@@ -34,7 +8,7 @@ and open the template in the editor.
                         <h1 class="title">Minesweeper</h1>
                         <hr />
                     </div>
-                </div> 
+                </div>
 
                 <div class="main-login main-center">
                     <center>
@@ -52,8 +26,4 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-
-        <script type="text/javascript" src="assets/js/bootstrap.js"></script>
-
-    </body>
-</html>
+{% endblock %}
