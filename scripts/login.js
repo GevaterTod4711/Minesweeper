@@ -12,20 +12,21 @@ $(function () {
     }
     
     function gmail() {
-        Console.log("gmail");
-
-        alert("gmail");
+        console.log("gmail");
     }
     
     function twitter() {
-        alert("twitter");
+        console.log("twitter");
 
     }
     
     function facebook() {
-        alert("facebook");
-
+        console.log("facebook");
     }
-    //Console.log("Test login.js");
-    $("#google").click(gmail);
+
+    console.log("Test login.js");
+    $('#google').click(gmail);
+    $('#facebook').click(facebook);
+    $('#twitter').click(twitter);
+
 });
