@@ -1,6 +1,6 @@
 <?php
 
-require 'bootstrap.php';
+require '../bootstrap.php';
 
 if (isset($_SESSION['user'])) {
     header("Location: main.php");
