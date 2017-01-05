@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+
 $(function () {
     
     function login(username, password) {
@@ -11,7 +12,8 @@ $(function () {
     }
     
     function gmail() {
-        
+        Console.log("gmail");
+
         alert("gmail");
     }
     
@@ -24,7 +26,6 @@ $(function () {
         alert("facebook");
 
     }
-    Console.log("Test login.js");
+    //Console.log("Test login.js");
     $("#google").click(gmail);
-    
 });
