@@ -12,7 +12,6 @@ class Database {
 	
 	$stmt->bindParam(1, $user, PDO::PARAM_STR);
 	$stmt->bindParam(2, $pass, PDO::PARAM_STR);
-	$stmt->bindParam(3, $note, PDO::PARAM_INT);
 	return $stmt->execute();
     }
     
