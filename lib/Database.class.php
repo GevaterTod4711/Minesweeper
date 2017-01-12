@@ -6,9 +6,9 @@ class Database {
     var $db_user='apache';
     var $db_pass='asdf';
     
-    public function registerUser($user, $pass, $mail) {
+    public function registerUser($user, $pass) {
 	$dbh = new PDO('mysql:host=localhost;dbname=' . $this->dbname, $this->db_user, $this->db_pass);
-	$stmt = $dbh->prepare('INSERT INTO user VALUES(?, ?, ?)');
+	$stmt = $dbh->prepare('INSERT INTO users VALUES(?, ?)');
 	
 	$stmt->bindParam(1, $user, PDO::PARAM_STR);
 	$stmt->bindParam(2, $pass, PDO::PARAM_STR);
