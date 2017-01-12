@@ -6,17 +6,24 @@ class Database {
     var $db_user='apache';
     var $db_pass='asdf';
     
-    public function registerUser($user, $pass) {
+    public function registerUser($user, $pass, $email) {
 	$dbh = new PDO('mysql:host=localhost;dbname=' . $this->dbname, $this->db_user, $this->db_pass);
-	$stmt = $dbh->prepare('INSERT INTO users VALUES(?, ?)');
+	echo 'user ' . $user;
+        echo ' pass ' . $pass;
+        echo ' email ' . $email;
+        $stmt = $dbh->prepare('INSERT INTO users (name, pwd, email) VALUES(:name, :pwd, :email)');
 	
-	$stmt->bindParam(1, $user, PDO::PARAM_STR);
-	$stmt->bindParam(2, $pass, PDO::PARAM_STR);
+	$stmt->bindParam(':name', $user);
+	$stmt->bindParam(':pwd', $pass);
+        $stmt->bindParam('email', $email);
+
 	return $stmt->execute();
     }
     
     public function getPasswordHash($user) {
-	$dbh = new PDO('mysql:host=localhost;dbname=' . $this->dbname, $this->db_user, $this->db_pass);
+        return crypt($user);
+
+	/*$dbh = new PDO('mysql:host=localhost;dbname=' . $this->dbname, $this->db_user, $this->db_pass);
 	$stmt = $dbh->prepare('SELECT passwd FROM user WHERE name=?');
 	
 	$stmt->bindParam(1, $user, PDO::PARAM_STR);
@@ -27,7 +34,7 @@ class Database {
 	}
 	else {
 	    return '';
-	}
+	}*/
     }
     public function getNote($user) {
 	$dbh = new PDO('mysql:host=localhost;dbname=' . $this->dbname, $this->db_user, $this->db_pass);
