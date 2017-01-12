@@ -6,10 +6,12 @@
 $(function () {
     
     function login() {
-         $.ajax({url: "login.php"});
+            console.log("login clicked");
+
+        //(window.location.replace("google.de");
     }
     
-    console.log("start_screen.js");
-    $('#login').click(login);
+    console.log("Test start_screen.js");
+    $('#login').click(login);    
 
 });

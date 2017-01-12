@@ -2,8 +2,8 @@
 
 require '../bootstrap.php';
 
-$template = $twig->load('login.tpl.html');
+$template = $twig->load('start_screen.tpl.html');
 
 echo $template->render(array(
-    'title' => 'Test',
+    'title' => 'Main',
 ));
