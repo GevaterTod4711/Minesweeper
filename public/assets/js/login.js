@@ -7,8 +7,8 @@
 
 $(function () {
     
-    function login(username, password) {
-        
+    function login() {
+        console.log("login");
     }
     
     function gmail() {
@@ -28,5 +28,6 @@ $(function () {
     $('#google').click(gmail);
     $('#facebook').click(facebook);
     $('#twitter').click(twitter);
+    $('#login').click(login);
 
 });

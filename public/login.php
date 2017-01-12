@@ -10,7 +10,7 @@ $template = $twig->load('login.tpl.html');
 $template_data = array(
     'title' => 'Login',
 );
-
+$openid = new LightOpenID('localhost:8080');
 if (!empty($_POST['name']) && !empty($_POST['password'])) {
 
     $db = Database::getInstance();
