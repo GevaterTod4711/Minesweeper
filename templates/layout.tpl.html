@@ -9,12 +9,15 @@ and open the template in the editor.
         <title>{{ title }}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="content-script-type" content="text/javascript" />
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" media="screen" href="assets/styles/minesweeper.css" type="text/css" />
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -29,11 +32,11 @@ and open the template in the editor.
         <!-- Google Fonts -->
         <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-       <!-- <script language="javascript" type="text/javascript" src="assets/js/register.js"></script>-->
+        <!-- <script language="javascript" type="text/javascript" src="assets/js/register.js"></script>-->
 
     </head>
     <body>
-{% block body %}{% endblock %}
+        {% block body %}{% endblock %}
         <script type="text/javascript" src="assets/js/bootstrap.js"></script>
     </body>
 </html>

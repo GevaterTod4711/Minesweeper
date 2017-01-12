@@ -7,7 +7,8 @@
     "require": {
         "php": "^5.4 || ^7.0",
         "twig/twig": "^1.29",
-        "google/apiclient": "^2.0"
+        "google/apiclient": "^2.0",
+        "iignatov/LightOpenID": "^1.0"
     },
     "autoload": {
         "classmap": [
