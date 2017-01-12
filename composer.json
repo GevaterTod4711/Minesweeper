@@ -6,7 +6,8 @@
     "keywords": ["game", "Minesweeper"],
     "require": {
         "php": "^5.4 || ^7.0",
-        "twig/twig": "^1.29"
+        "twig/twig": "^1.29",
+        "google/apiclient": "^2.0"
     },
     "autoload": {
         "classmap": [
