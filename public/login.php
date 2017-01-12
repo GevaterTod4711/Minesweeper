@@ -17,18 +17,15 @@ if (!empty($_POST['name']) && !empty($_POST['password'])) {
     $user = filter_input(INPUT_POST, 'user');
     $passwd = filter_input(INPUT_POST, 'password');
 
-    $hash = $db->getPasswordHash($user);
+    $hash = $db->getPasswordHashForUser($user);
 
     if (password_verify($passwd, $hash)) {
+        echo 'yes';
         $template_data['result'] = 'Login erfolgreich.';
-
-        $student = new Student($user);
-        $student->setNote($db->getNote($user));
-
-        $_SESSION['user'] = $student;
 
         header('Location: userdata.php');
     } else {
+        echo 'no';
         $template_data['result'] = 'Login fehlgeschlagen';
     }
 }
