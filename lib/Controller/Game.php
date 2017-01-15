@@ -9,7 +9,7 @@ class Game extends AbstractController
 {
     public function getIndex($request, $response, $args)
     {
-        $this->container->view->render($response, 'game.tpl.html', [
+        $this->container->view->render($response, 'game.twig', [
             'title' => 'Spiel',
         ]);
 

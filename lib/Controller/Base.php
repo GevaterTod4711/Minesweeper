@@ -9,7 +9,7 @@ class Base extends AbstractController
 {
     public function getIndex($request, $response, $args)
     {
-        $this->container->view->render($response, 'start_screen.tpl.html', [
+        $this->container->view->render($response, 'start_screen.twig', [
             'title' => 'Main',
         ]);
 

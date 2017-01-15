@@ -14,7 +14,7 @@ class Auth extends AbstractController
             header("Location: main.php");
         }
 
-        $this->container->view->render($response, 'login.tpl.html', [
+        $this->container->view->render($response, 'login.twig', [
             'title' => 'Login',
         ]);
 
@@ -50,14 +50,14 @@ class Auth extends AbstractController
             }
         }
 
-        $this->container->view->render($response, 'login.tpl.html', $template_data);
+        $this->container->view->render($response, 'login.twig', $template_data);
 
         return $response;
     }
 
     public function getRegister($request, $response, $args)
     {
-        $this->container->view->render($response, 'register.tpl.html', [
+        $this->container->view->render($response, 'register.twig', [
             'title' => 'Register',
         ]);
 
@@ -85,7 +85,7 @@ class Auth extends AbstractController
             echo 'Fehler!!!!!';
         }
 
-        $this->container->view->render($response, 'register.tpl.html', $template_data);
+        $this->container->view->render($response, 'register.twig', $template_data);
 
         return $response;
     }
