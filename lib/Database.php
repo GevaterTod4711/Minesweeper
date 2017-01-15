@@ -2,6 +2,8 @@
 
 namespace Minesweeper;
 
+use PDO;
+
 class Database {
 
     var $dbname='minesweeper';
