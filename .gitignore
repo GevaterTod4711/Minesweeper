@@ -1,5 +1,6 @@
 cache/
 composer.lock
 composer.phar
+logs/
 nbproject/
 vendor/
