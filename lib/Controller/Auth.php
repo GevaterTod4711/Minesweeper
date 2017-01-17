@@ -34,8 +34,11 @@ class Auth extends AbstractController
         if (!empty($_POST['name']) && !empty($_POST['password'])) {
 
             $db = Database::getInstance();
-            $user = filter_input(INPUT_POST, 'user');
+            $user = filter_input(INPUT_POST, 'name');
             $passwd = filter_input(INPUT_POST, 'password');
+
+            echo 'user ' . $user;
+            echo ' passwd ' . $passwd;
 
             $hash = $db->getPasswordHashForUser($user);
 
@@ -43,7 +46,7 @@ class Auth extends AbstractController
                 echo 'yes';
                 $template_data['result'] = 'Login erfolgreich.';
 
-                header('Location: userdata.php');
+                header('Location: game');
             } else {
                 echo 'no';
                 $template_data['result'] = 'Login fehlgeschlagen';
