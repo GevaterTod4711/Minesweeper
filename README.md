@@ -15,7 +15,7 @@ php composer.phar update
 Starte den PHP built-in Server, um sofort loszulegen:
 
 ```shell
-php -S localhost:8080 -t public
+php composer.phar start
 ```
 
 Die Anwendung ist jetzt unter http://localhost:8080 erreichbar.

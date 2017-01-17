@@ -1,5 +1,15 @@
 <?php
 
+if (PHP_SAPI == 'cli-server') {
+    // To help the built-in PHP dev server, check if the request was actually for
+    // something which should probably be served as a static file
+    $url  = parse_url($_SERVER['REQUEST_URI']);
+    $file = __DIR__ . $url['path'];
+    if (is_file($file)) {
+        return false;
+    }
+}
+
 require 'vendor/autoload.php';
 
 define('DS', DIRECTORY_SEPARATOR); // Shortcut
@@ -8,14 +18,16 @@ define('ROOTPATH', realpath(__DIR__).DS);
 
 session_start();
 
-$client = new Google_Client();
-$client->setApplicationName("Minesweeper");
-$client->setDeveloperKey("abc");
-$service = new Google_Service_Books($client);
+// Instantiate the app
+$settings = require 'config/settings.php';
 
-$loader = new Twig_Loader_Filesystem(ROOTPATH.'templates'.DS);
+$app = new \Slim\App($settings);
 
-$twig = new Twig_Environment($loader, array(
-    'cache' => ROOTPATH.DS.'cache'.DS.'twig',
-    'auto_reload' => true,
-));
+// Set up dependencies
+require 'config/dependencies.php';
+
+// Register middleware
+require 'config/middleware.php';
+
+// Register routes
+require 'config/routes.php';

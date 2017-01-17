@@ -1,4 +1,4 @@
-{% extends 'layout.tpl.html' %}
+{% extends 'layout.twig' %}
 
 {% block body %}
         <div class="container">
@@ -35,7 +35,7 @@
                 <hr />
                 <div class="main-login main-center">
 
-                    <form class="form-horizontal" method="post" action="login.php">
+                    <form class="form-horizontal" method="post" action="login">
                         <div class="form-group">
                             <label for="name" class="cols-sm-2 control-label">Nickname/ Email</label>
                             <div class="cols-sm-10">
@@ -58,7 +58,7 @@
                             <input type="submit" class="btn btn-primary btn-lg btn-block login-button" id="login" >Login</input>
                         </div>
                         <div class="login-register">
-                            <a href="register.php">Register</a>
+                            <a href="register">Register</a>
                         </div>
                     </form>
                 </div>
