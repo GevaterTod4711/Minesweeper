@@ -22,9 +22,9 @@ class Database {
     
     public function getPasswordHashForUser($user) {
         $dbh = new PDO('mysql:host=localhost;dbname=' . $this->dbname, $this->db_user, $this->db_pass);
-	$stmt = $dbh->prepare('SELECT passwd FROM users WHERE name=?');
+	$stmt = $dbh->prepare('SELECT pwd FROM users WHERE name=:name');
 	
-	$stmt->bindParam(1, $user, PDO::PARAM_STR);
+	$stmt->bindParam(':name', $user, PDO::PARAM_STR);
 	$stmt->execute();
 	$pass = $stmt->fetch();
 	if (!empty($pass)) {
@@ -37,7 +37,7 @@ class Database {
     }
     
     public function getPasswordHash($user) {
-        return crypt($user);
+        return password_hash($user, PASSWORD_BCRYPT);
 
     }
     public function getNote($user) {

@@ -2,9 +2,9 @@
 
 require '../bootstrap.php';
 
-$template = $twig->load('game.tpl.html');
+$template = $twig->load('sucess.html');
 
 echo $template->render(array(
-    'title' => 'Spiel',
+    'title' => 'Erfolgreich angemeldet!!!',
 ));
 
