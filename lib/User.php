@@ -7,6 +7,7 @@ class User {
     private $passwordHash;
     private $name;
     private $email;
+    private $id;
 
     public function getName() {
         return $this->name;
@@ -14,6 +15,14 @@ class User {
 
     public function setName($name) {
         $this->name = $name;
+    }
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
     }
 
     public function getEMail() {
@@ -30,6 +39,10 @@ class User {
 
     public function getPasswordHash() {
         return $this->passwordHash;
+    }
+
+    public function setPasswordHash($password) {
+        $this->passwordHash = $password;
     }
 
     public function setPassword($password) {
