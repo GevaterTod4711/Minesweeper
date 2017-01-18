@@ -14,20 +14,16 @@ $template_data = array(
 if (!empty($_POST['name']) && !empty($_POST['password'])) {
 
     $db = Minesweeper\Database::getInstance();
-    $user = filter_input(INPUT_POST, 'name');
-    $passwd = filter_input(INPUT_POST, 'password');
-    echo 'user ' . $user;
-    echo ' passwd ' . $passwd;
-    $hash = $db->getPasswordHashForUser($user);
+    $name = filter_input(INPUT_POST, 'name');
+    $password = filter_input(INPUT_POST, 'password');
+    $user = $db->getUserByName($name);
 
-    if (password_verify($passwd, $hash)) {
-        echo 'yes';
-        $template_data['result'] = 'Login erfolgreich.';
-
-        header('Location: game.php');
+    if ($user === null || !$user->verifyPassword($password)) {
+        // TODO Fehlermeldung
+        $template_data['message'] = 'login fehlgeschlagen';
     } else {
-        echo 'no';
-        $template_data['result'] = 'Login fehlgeschlagen';
+        header('Location: game.php');
+        exit();
     }
 }
 

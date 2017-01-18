@@ -1,69 +1,73 @@
 {% extends 'layout.tpl.html' %}
 
 {% block body %}
-        <div class="container">
-            <div class="row main">
-                <div class="panel-heading">
-                    <div class="panel-title text-center">
-                        <h1 class="title">Minesweeper - Login</h1>
-                        <hr />
-                    </div>
-                </div>
-                <div class="omb_login">
-                    <div class="row omb_row-sm-offset-3 omb_socialButtons">
-                        <div class="col-xs-4 col-sm-2">
-                            <button id="facebook" class="btn btn-lg btn-block omb_btn-facebook">
-                                <i class="fa fa-facebook visible-xs"></i>
-				<span>Facebook</span>
-                            </button>
-                        </div>
-                        <div class="col-xs-4 col-sm-2">
-                            <button id="twitter" class="btn btn-lg btn-block omb_btn-twitter">
-                                <i class="fa fa-twitter visible-xs"></i>
-				<span>Twitter</span>
-                            </button>
-                        </div>
-                        <div class="col-xs-4 col-sm-2">
-                            <button id="google" class="btn btn-lg btn-block omb_btn-google">
-                                <i class="fa fa-google-plus visible-xs"></i>
-				<span>Google+</span>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
+<div class="container">
+    <div class="row main">
+        <div class="panel-heading">
+            <div class="panel-title text-center">
+                <h1 class="title">Minesweeper - Login</h1>
                 <hr />
-                <div class="main-login main-center">
-
-                    <form class="form-horizontal" method="post" action="login.php">
-                        <div class="form-group">
-                            <label for="name" class="cols-sm-2 control-label">Nickname/ Email</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon" ><i class="fa fa-user fa" ></i></span>
-                                    <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Nickname or Email"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="cols-sm-2 control-label">Password</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" ></i></span>
-                                    <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group ">
-                            <input type="submit" class="btn btn-primary btn-lg btn-block login-button" id="login" >Login</input>
-                        </div>
-                        <div class="login-register">
-                            <a href="register.php">Register</a>
-                        </div>
-                    </form>
-                </div>
             </div>
         </div>
-        <script type="text/javascript" src="assets/js/login.js"></script>
+        <div class="omb_login">
+            <div class="row omb_row-sm-offset-3 omb_socialButtons">
+                <div class="col-xs-4 col-sm-2">
+                    <button id="facebook" class="btn btn-lg btn-block omb_btn-facebook">
+                        <i class="fa fa-facebook visible-xs"></i>
+                        <span>Facebook</span>
+                    </button>
+                </div>
+                <div class="col-xs-4 col-sm-2">
+                    <button id="twitter" class="btn btn-lg btn-block omb_btn-twitter">
+                        <i class="fa fa-twitter visible-xs"></i>
+                        <span>Twitter</span>
+                    </button>
+                </div>
+                <div class="col-xs-4 col-sm-2">
+                    <button id="google" class="btn btn-lg btn-block omb_btn-google">
+                        <i class="fa fa-google-plus visible-xs"></i>
+                        <span>Google+</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <hr />
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+
+        <div class="main-login main-center">
+
+            <form class="form-horizontal" method="post" action="login.php">
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Nickname/ Email</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" ><i class="fa fa-user fa" ></i></span>
+                            <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Nickname or Email"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="cols-sm-2 control-label">Password</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" ></i></span>
+                            <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <input type="submit" class="btn btn-primary btn-lg btn-block login-button" id="login" >Login</input>
+                </div>
+                <div class="login-register">
+                    <a href="register.php">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="assets/js/login.js"></script>
 
 {% endblock %}

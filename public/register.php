@@ -3,16 +3,19 @@
 require '../bootstrap.php';
 
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
-$passwort = filter_input(INPUT_POST, 'password', FILTER_UNSAFE_RAW);
+$password = filter_input(INPUT_POST, 'password', FILTER_UNSAFE_RAW);
 $confirm = filter_input(INPUT_POST, 'confirm', FILTER_UNSAFE_RAW);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
 
-if ($name && $passwort && $email && $passwort === $confirm) {
+if ($name && $password && $email && $password === $confirm) {
     $dbh = Minesweeper\Database::getInstance();
+    
+    $user = new Minesweeper\User;
+    $user->setName($name);
+    $user->setPassword($password);
+    $user->setEmail($email);
 
-    $hash = $dbh->getPasswordHash($passwort);
-
-    $return = $dbh->registerUser($name, $hash, $email);
+    $return = $dbh->registerUser($user);
 } else {
     echo 'Fehler!!!!!';
 }

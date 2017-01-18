@@ -1,66 +1,62 @@
 <?php
+
 namespace Minesweeper;
 
 use PDO;
 
 class Database {
-    
-    var $dbname='minesweeper';
-    var $db_user='apache';
-    var $db_pass='asdf';
-    
-    public function registerUser($user, $pass, $email) {
-	$dbh = new PDO('mysql:host=localhost;dbname=' . $this->dbname, $this->db_user, $this->db_pass);
-	echo 'user ' . $user;
-        echo ' pass ' . $pass;
-        echo ' email ' . $email;
-        $stmt = $dbh->prepare('INSERT INTO users (name, pwd, email) VALUES(:name, :pwd, :email)');
-	
-	$stmt->bindParam(':name', $user);
-	$stmt->bindParam(':pwd', $pass);
-        $stmt->bindParam('email', $email);
 
-	return $stmt->execute();
+    private static $dbname = 'minesweeper';
+    private static $db_user = 'apache';
+    private static $db_pass = 'asdf';
+    private static $pdo;
+
+    public function registerUser(User $user) {
+
+        $stmt = static::$pdo->prepare('INSERT INTO users (name, pwd, email) VALUES(:name, :pwd, :email)');
+
+        $stmt->bindParam(':name', $user->getName());
+        $stmt->bindParam(':pwd', $user->getPasswordHash());
+        $stmt->bindParam('email', $user->getEMail());
+
+        return $stmt->execute();
     }
-    
+
     public function getPasswordHashForUser($user) {
-        $dbh = new PDO('mysql:host=localhost;dbname=' . $this->dbname, $this->db_user, $this->db_pass);
-	$stmt = $dbh->prepare('SELECT pwd FROM users WHERE name=:name');
-	
-	$stmt->bindParam(':name', $user, PDO::PARAM_STR);
-	$stmt->execute();
-	$pass = $stmt->fetch();
-	if (!empty($pass)) {
-	    return $pass[0];
-	}
-	else {
-	    return '';
-	}
+        $stmt = static::$pdo->prepare('SELECT pwd FROM users WHERE name=:name');
 
+        $stmt->bindParam(':name', $user, PDO::PARAM_STR);
+        $stmt->execute();
+        $pass = $stmt->fetch();
+        if (!empty($pass)) {
+            return $pass[0];
+        } else {
+            return '';
+        }
     }
-    
-    public function getPasswordHash($user) {
-        return password_hash($user, PASSWORD_BCRYPT);
 
+    public function getUserByName($name) {
+        $stmt = static::$pdo->prepare('SELECT * FROM users WHERE name=:name');
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        if ($row === false) {
+
+            return null;
+        }
+        $user = new User;
+        $user->setEmail($row['email']);
+        $user->setName($row['name']);
+        $user->setPasswordHash($row['pwd']);
+        $user->setId($row['id']);
+        return $user;
     }
-    public function getNote($user) {
-	$dbh = new PDO('mysql:host=localhost;dbname=' . $this->dbname, $this->db_user, $this->db_pass);
-	$stmt = $dbh->prepare('SELECT note FROM user WHERE name=?');
-	
-	$stmt->bindParam(1, $user, PDO::PARAM_STR);
-	$stmt->execute();
-	$pass = $stmt->fetch();
-	if (!empty($pass)) {
-	    return $pass[0];
-	}
-	else {
-	    return '';
-	}
-    }
-    
+
     public static function getInstance() {
-	return new Database();
+        if (static::$pdo === null) {
+            static::$pdo = new PDO('mysql:host=localhost;dbname=' . static::$dbname, static::$db_user, static::$db_pass);
+        }
+        return new self();
     }
-}
 
-?>
+}
