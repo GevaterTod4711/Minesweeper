@@ -1,4 +1,7 @@
 <?php
+namespace Minesweeper;
+
+use PDO;
 
 class Database {
     
