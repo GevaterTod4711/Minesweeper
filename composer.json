@@ -11,8 +11,8 @@
         "iignatov/LightOpenID": "^1.0"
     },
     "autoload": {
-        "classmap": [
-            "lib/"
-        ]
+        "psr-4": {
+            "Minesweeper\\": "lib/"
+        }
     }
 }

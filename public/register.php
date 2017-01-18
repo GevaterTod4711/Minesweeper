@@ -8,7 +8,7 @@ $confirm = filter_input(INPUT_POST, 'confirm', FILTER_UNSAFE_RAW);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
 
 if ($name && $passwort && $email && $passwort === $confirm) {
-    $dbh = Database::getInstance();
+    $dbh = Minesweeper\Database::getInstance();
 
     $hash = $dbh->getPasswordHash($passwort);
 

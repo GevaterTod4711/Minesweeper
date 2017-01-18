@@ -13,7 +13,7 @@ $template_data = array(
 //$openid = new LightOpenID('localhost:8080');
 if (!empty($_POST['name']) && !empty($_POST['password'])) {
 
-    $db = Database::getInstance();
+    $db = Minesweeper\Database::getInstance();
     $user = filter_input(INPUT_POST, 'name');
     $passwd = filter_input(INPUT_POST, 'password');
     echo 'user ' . $user;
