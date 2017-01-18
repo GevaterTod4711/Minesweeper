@@ -28,8 +28,12 @@ class User {
         return password_verify($password, $this->passwordHash);
     }
 
+    public function getPasswordHash() {
+        return $this->passwordHash;
+    }
+
     public function setPassword($password) {
-        $this->passwordHash = password_hash($password);
+        $this->passwordHash = password_hash($password, PASSWORD_DEFAULT);
     }
 
 }
