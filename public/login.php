@@ -22,6 +22,7 @@ if (!empty($_POST['name']) && !empty($_POST['password'])) {
         // TODO Fehlermeldung
         $template_data['message'] = 'login fehlgeschlagen';
     } else {
+	$_SESSION['loggedIn'] = true;
         header('Location: game.php');
         exit();
     }

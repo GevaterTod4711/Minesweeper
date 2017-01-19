@@ -16,6 +16,10 @@ if ($name && $password && $email && $password === $confirm) {
     $user->setEmail($email);
 
     $return = $dbh->registerUser($user);
+
+    if ($return) {
+        header('Location: login.php');
+    }
 } else {
     //echo 'Fehler!!!!!';
 }
