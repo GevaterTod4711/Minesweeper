@@ -17,7 +17,7 @@ if ($name && $password && $email && $password === $confirm) {
 
     $return = $dbh->registerUser($user);
 } else {
-    echo 'Fehler!!!!!';
+    //echo 'Fehler!!!!!';
 }
 $template = $twig->load('register.tpl.html');
 
